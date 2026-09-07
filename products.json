@@ -1,0 +1,67 @@
+{
+  "bak_s_tenom_na_200l_i_leyka_s_vedrom": {
+    "title": "Бак с ТЭНом на 200л и лейка с ведром",
+    "base_price": "31 000 ₽",
+    "sizes": ["Стандарт"]
+  },
+  "banya_bochka": {
+    "title": "Баня-бочка",
+    "base_price": "140 000 ₽",
+    "sizes": ["2m", "3m", "4m", "5m", "6m"]
+  },
+  "banya_kupol": {
+    "title": "Баня Купол",
+    "base_price": "190 000 ₽",
+    "sizes": ["3x3", "4x4", "5x5"]
+  },
+  "banya_kvadro": {
+    "title": "Баня Квадро",
+    "base_price": "167 000 ₽",
+    "sizes": ["2x3", "2x4", "2x5", "2x6"]
+  },
+  "banya_kvadrooval": {
+    "title": "Баня Квадроовал",
+    "base_price": "175 000 ₽",
+    "sizes": ["3x4", "3x5", "3x6"]
+  },
+  "banya_parus": {
+    "title": "Баня «Парус»",
+    "base_price": "167 000 ₽",
+    "sizes": ["2x3", "2x3,5", "2x4", "2x4,5", "2x5", "2x6"]
+  },
+  "banya_viking": {
+    "title": "Баня «Викинг»",
+    "base_price": "180 000 ₽",
+    "sizes": ["4m", "5m", "6m"]
+  },
+  "klassicheskaya_banya": {
+    "title": "Классическая баня",
+    "base_price": "150 000 ₽",
+    "sizes": ["3x4", "4x5", "6x6"]
+  },
+  "ograzhdenie_dlya_pechi": {
+    "title": "Ограждение для печи",
+    "base_price": "5 000 ₽",
+    "sizes": ["Стандарт"]
+  },
+  "shkaf": {
+    "title": "Шкаф",
+    "base_price": "15 000 ₽",
+    "sizes": ["Стандарт"]
+  },
+  "stellazh": {
+    "title": "Стеллаж",
+    "base_price": "7 000 ₽",
+    "sizes": ["Стандарт"]
+  },
+  "terassa": {
+    "title": "Терраса",
+    "base_price": "40 000 ₽",
+    "sizes": ["2x2", "2x3"]
+  },
+  "vkhodnoy_portal": {
+    "title": "Входной портал",
+    "base_price": "50 000 ₽",
+    "sizes": ["Стандарт"]
+  }
+}

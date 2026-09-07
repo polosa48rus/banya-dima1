@@ -1,0 +1,381 @@
+<div id="b1716" class="block-wrapper">
+    <section class="landing-block g-pt-40 g-pb-40 g-bg-white">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-12 text-center">
+                    <h2 class="text-uppercase font-weight-700 h1 mb-3" style="color: #000;">Дополнительные элементы</h2>
+                    <p class="text-muted">Выберите улучшения и дополнения для вашей бани</p>
+                </div>
+            </div>
+            
+            <!-- Кнопки категорий (вкладки) -->
+            <div class="row mb-4">
+                <div class="col-12 d-flex flex-wrap justify-content-center" id="cat-tabs" style="gap: 6px;">
+                    <button type="button" class="btn text-uppercase font-weight-bold cat-btn" onclick="switchTab(0)" style="background-color: #f7b70b; border-color: #f7b70b; color: #000; font-size: 0.75rem; padding: 8px 10px; border-radius: 4px;">Двери и входные группы</button>
+                    <button type="button" class="btn btn-outline-secondary text-uppercase font-weight-bold cat-btn" onclick="switchTab(1)" style="font-size: 0.75rem; padding: 8px 10px; border-radius: 4px; border-color: #6c757d; color: #6c757d;">Окна, шкафы, стеллажи</button>
+                    <button type="button" class="btn btn-outline-secondary text-uppercase font-weight-bold cat-btn" onclick="switchTab(2)" style="font-size: 0.75rem; padding: 8px 10px; border-radius: 4px; border-color: #6c757d; color: #6c757d;">Печи и каменка</button>
+                    <button type="button" class="btn btn-outline-secondary text-uppercase font-weight-bold cat-btn" onclick="switchTab(3)" style="font-size: 0.75rem; padding: 8px 10px; border-radius: 4px; border-color: #6c757d; color: #6c757d;">Душ, обливное и пропитка</button>
+                    <button type="button" class="btn btn-outline-secondary text-uppercase font-weight-bold cat-btn" onclick="switchTab(4)" style="font-size: 0.75rem; padding: 8px 10px; border-radius: 4px; border-color: #6c757d; color: #6c757d;">Сборка и фундамент</button>
+                </div>
+            </div>
+
+            <!-- Вкладка 0: Двери и входные группы -->
+            <div class="cat-content row justify-content-center" id="tab-0">
+                <div class="col-lg-10">
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100 border shadow-sm" style="cursor: pointer; border-radius: 8px; overflow: hidden; background: #fff;" onclick="toggleCard(event, this)">
+                                <img src="../../../assets/img/options/glass_door.jpg" onerror="this.src='../../../bitrix/components/bitrix/catalog.element/templates/store_v3/images/no_photo.png'" class="card-img-top" alt="Дверь" style="height: 130px; object-fit: cover; width: 100%;">
+                                <div class="card-body d-flex flex-column justify-content-between p-3">
+                                    <h6 class="font-weight-bold text-dark mb-2" style="font-size: 0.9rem;">Стеклянная дверь парная или межкомнатная</h6>
+                                    <div class="d-flex align-items-center justify-content-between mt-auto pt-2 border-top">
+                                        <span class="font-weight-bold text-warning" style="font-size: 1.05rem;">7 000 &#8381;</span>
+                                        <input type="checkbox" class="my-option-checkbox" data-price="7000" style="width: 20px; height: 20px; cursor: pointer; accent-color: #f7b70b;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100 border shadow-sm" style="cursor: pointer; border-radius: 8px; overflow: hidden; background: #fff;" onclick="toggleCard(event, this)">
+                                <img src="../../../assets/img/options/plastic_door.jpg" onerror="this.src='../../../bitrix/components/bitrix/catalog.element/templates/store_v3/images/no_photo.png'" class="card-img-top" alt="Дверь" style="height: 130px; object-fit: cover; width: 100%;">
+                                <div class="card-body d-flex flex-column justify-content-between p-3">
+                                    <h6 class="font-weight-bold text-dark mb-2" style="font-size: 0.9rem;">Дверь входная пластиковая</h6>
+                                    <div class="d-flex align-items-center justify-content-between mt-auto pt-2 border-top">
+                                        <span class="font-weight-bold text-warning" style="font-size: 1.05rem;">20 000 &#8381;</span>
+                                        <input type="checkbox" class="my-option-checkbox" data-price="20000" style="width: 20px; height: 20px; cursor: pointer; accent-color: #f7b70b;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100 border shadow-sm" style="cursor: pointer; border-radius: 8px; overflow: hidden; background: #fff;" onclick="toggleCard(event, this)">
+                                <img src="../../../assets/img/options/iron_door.jpg" onerror="this.src='../../../bitrix/components/bitrix/catalog.element/templates/store_v3/images/no_photo.png'" class="card-img-top" alt="Дверь" style="height: 130px; object-fit: cover; width: 100%;">
+                                <div class="card-body d-flex flex-column justify-content-between p-3">
+                                    <h6 class="font-weight-bold text-dark mb-2" style="font-size: 0.9rem;">Дверь входная железная</h6>
+                                    <div class="d-flex align-items-center justify-content-between mt-auto pt-2 border-top">
+                                        <span class="font-weight-bold text-warning" style="font-size: 1.05rem;">25 000 &#8381;</span>
+                                        <input type="checkbox" class="my-option-checkbox" data-price="25000" style="width: 20px; height: 20px; cursor: pointer; accent-color: #f7b70b;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100 border shadow-sm" style="cursor: pointer; border-radius: 8px; overflow: hidden; background: #fff;" onclick="toggleCard(event, this)">
+                                <img src="../../../assets/img/options/placeholder.jpg" onerror="this.src='../../../bitrix/components/bitrix/catalog.element/templates/store_v3/images/no_photo.png'" class="card-img-top" alt="Врезка" style="height: 130px; object-fit: cover; width: 100%;">
+                                <div class="card-body d-flex flex-column justify-content-between p-3">
+                                    <h6 class="font-weight-bold text-dark mb-2" style="font-size: 0.9rem;">Боковая врезка входной двери</h6>
+                                    <div class="d-flex align-items-center justify-content-between mt-auto pt-2 border-top">
+                                        <span class="font-weight-bold text-warning" style="font-size: 1.05rem;">15 000 &#8381;</span>
+                                        <input type="checkbox" class="my-option-checkbox" data-price="15000" style="width: 20px; height: 20px; cursor: pointer; accent-color: #f7b70b;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100 border shadow-sm" style="cursor: pointer; border-radius: 8px; overflow: hidden; background: #fff;" onclick="toggleCard(event, this)">
+                                <img src="../../../assets/img/options/vkhodnoy_portal.jpg" onerror="this.src='../../../bitrix/components/bitrix/catalog.element/templates/store_v3/images/no_photo.png'" class="card-img-top" alt="Портал" style="height: 130px; object-fit: cover; width: 100%;">
+                                <div class="card-body d-flex flex-column justify-content-between p-3">
+                                    <h6 class="font-weight-bold text-dark mb-2" style="font-size: 0.9rem;">Входной боковой портал</h6>
+                                    <div class="d-flex align-items-center justify-content-between mt-auto pt-2 border-top">
+                                        <span class="font-weight-bold text-warning" style="font-size: 1.05rem;">50 000 &#8381;</span>
+                                        <input type="checkbox" class="my-option-checkbox" data-price="50000" style="width: 20px; height: 20px; cursor: pointer; accent-color: #f7b70b;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Вкладка 1: Окна, шкафы, лавочки, кровати, стеллажи -->
+            <div class="cat-content row justify-content-center d-none" id="tab-1">
+                <div class="col-lg-10">
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100 border shadow-sm" style="cursor: pointer; border-radius: 8px; overflow: hidden; background: #fff;" onclick="toggleCard(event, this)">
+                                <img src="../../../assets/img/options/placeholder.jpg" onerror="this.src='../../../bitrix/components/bitrix/catalog.element/templates/store_v3/images/no_photo.png'" class="card-img-top" alt="Окно" style="height: 130px; object-fit: cover; width: 100%;">
+                                <div class="card-body d-flex flex-column justify-content-between p-3">
+                                    <h6 class="font-weight-bold text-dark mb-2" style="font-size: 0.9rem;">Окно 60*90 деревянное</h6>
+                                    <div class="d-flex align-items-center justify-content-between mt-auto pt-2 border-top">
+                                        <span class="font-weight-bold text-warning" style="font-size: 1.05rem;">7 000 &#8381;</span>
+                                        <input type="checkbox" class="my-option-checkbox" data-price="7000" style="width: 20px; height: 20px; cursor: pointer; accent-color: #f7b70b;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100 border shadow-sm" style="cursor: pointer; border-radius: 8px; overflow: hidden; background: #fff;" onclick="toggleCard(event, this)">
+                                <img src="../../../assets/img/options/placeholder.jpg" onerror="this.src='../../../bitrix/components/bitrix/catalog.element/templates/store_v3/images/no_photo.png'" class="card-img-top" alt="Окно" style="height: 130px; object-fit: cover; width: 100%;">
+                                <div class="card-body d-flex flex-column justify-content-between p-3">
+                                    <h6 class="font-weight-bold text-dark mb-2" style="font-size: 0.9rem;">Окно 60*90 пластик</h6>
+                                    <div class="d-flex align-items-center justify-content-between mt-auto pt-2 border-top">
+                                        <span class="font-weight-bold text-warning" style="font-size: 1.05rem;">9 000 &#8381;</span>
+                                        <input type="checkbox" class="my-option-checkbox" data-price="9000" style="width: 20px; height: 20px; cursor: pointer; accent-color: #f7b70b;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100 border shadow-sm" style="cursor: pointer; border-radius: 8px; overflow: hidden; background: #fff;" onclick="toggleCard(event, this)">
+                                <img src="../../../assets/img/options/placeholder.jpg" onerror="this.src='../../../bitrix/components/bitrix/catalog.element/templates/store_v3/images/no_photo.png'" class="card-img-top" alt="Рундук" style="height: 130px; object-fit: cover; width: 100%;">
+                                <div class="card-body d-flex flex-column justify-content-between p-3">
+                                    <h6 class="font-weight-bold text-dark mb-2" style="font-size: 0.9rem;">Рундук</h6>
+                                    <div class="d-flex align-items-center justify-content-between mt-auto pt-2 border-top">
+                                        <span class="font-weight-bold text-warning" style="font-size: 1.05rem;">3 000 &#8381;</span>
+                                        <input type="checkbox" class="my-option-checkbox" data-price="3000" style="width: 20px; height: 20px; cursor: pointer; accent-color: #f7b70b;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100 border shadow-sm" style="cursor: pointer; border-radius: 8px; overflow: hidden; background: #fff;" onclick="toggleCard(event, this)">
+                                <img src="../../../assets/img/options/shkaf.jpg" onerror="this.src='../../../bitrix/components/bitrix/catalog.element/templates/store_v3/images/no_photo.png'" class="card-img-top" alt="Шкаф" style="height: 130px; object-fit: cover; width: 100%;">
+                                <div class="card-body d-flex flex-column justify-content-between p-3">
+                                    <h6 class="font-weight-bold text-dark mb-2" style="font-size: 0.9rem;">Шкаф</h6>
+                                    <div class="d-flex align-items-center justify-content-between mt-auto pt-2 border-top">
+                                        <span class="font-weight-bold text-warning" style="font-size: 1.05rem;">15 000 &#8381;</span>
+                                        <input type="checkbox" class="my-option-checkbox" data-price="15000" style="width: 20px; height: 20px; cursor: pointer; accent-color: #f7b70b;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100 border shadow-sm" style="cursor: pointer; border-radius: 8px; overflow: hidden; background: #fff;" onclick="toggleCard(event, this)">
+                                <img src="../../../assets/img/options/stellazh.jpg" onerror="this.src='../../../bitrix/components/bitrix/catalog.element/templates/store_v3/images/no_photo.png'" class="card-img-top" alt="Стеллаж" style="height: 130px; object-fit: cover; width: 100%;">
+                                <div class="card-body d-flex flex-column justify-content-between p-3">
+                                    <h6 class="font-weight-bold text-dark mb-2" style="font-size: 0.9rem;">Стеллаж</h6>
+                                    <div class="d-flex align-items-center justify-content-between mt-auto pt-2 border-top">
+                                        <span class="font-weight-bold text-warning" style="font-size: 1.05rem;">7 000 &#8381;</span>
+                                        <input type="checkbox" class="my-option-checkbox" data-price="7000" style="width: 20px; height: 20px; cursor: pointer; accent-color: #f7b70b;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100 border shadow-sm" style="cursor: pointer; border-radius: 8px; overflow: hidden; background: #fff;" onclick="toggleCard(event, this)">
+                                <img src="../../../assets/img/options/placeholder.jpg" onerror="this.src='../../../bitrix/components/bitrix/catalog.element/templates/store_v3/images/no_photo.png'" class="card-img-top" alt="Кровать" style="height: 130px; object-fit: cover; width: 100%;">
+                                <div class="card-body d-flex flex-column justify-content-between p-3">
+                                    <h6 class="font-weight-bold text-dark mb-2" style="font-size: 0.9rem;">Раскладная кровать</h6>
+                                    <div class="d-flex align-items-center justify-content-between mt-auto pt-2 border-top">
+                                        <span class="font-weight-bold text-warning" style="font-size: 1.05rem;">25 000 &#8381;</span>
+                                        <input type="checkbox" class="my-option-checkbox" data-price="25000" style="width: 20px; height: 20px; cursor: pointer; accent-color: #f7b70b;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Вкладка 2: Печи и каменка -->
+            <div class="cat-content row justify-content-center d-none" id="tab-2">
+                <div class="col-lg-10">
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100 border shadow-sm" style="cursor: pointer; border-radius: 8px; overflow: hidden; background: #fff;" onclick="toggleCard(event, this)">
+                                <img src="../../../assets/img/options/ograzhdenie.jpg" onerror="this.src='../../../bitrix/components/bitrix/catalog.element/templates/store_v3/images/no_photo.png'" class="card-img-top" alt="Печь" style="height: 130px; object-fit: cover; width: 100%;">
+                                <div class="card-body d-flex flex-column justify-content-between p-3">
+                                    <h6 class="font-weight-bold text-dark mb-2" style="font-size: 0.9rem;">Боковая врезка печи</h6>
+                                    <div class="d-flex align-items-center justify-content-between mt-auto pt-2 border-top">
+                                        <span class="font-weight-bold text-warning" style="font-size: 1.05rem;">19 000 &#8381;</span>
+                                        <input type="checkbox" class="my-option-checkbox" data-price="19000" style="width: 20px; height: 20px; cursor: pointer; accent-color: #f7b70b;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100 border shadow-sm" style="cursor: pointer; border-radius: 8px; overflow: hidden; background: #fff;" onclick="toggleCard(event, this)">
+                                <img src="../../../assets/img/options/placeholder.jpg" onerror="this.src='../../../bitrix/components/bitrix/catalog.element/templates/store_v3/images/no_photo.png'" class="card-img-top" alt="Экономайзер" style="height: 130px; object-fit: cover; width: 100%;">
+                                <div class="card-body d-flex flex-column justify-content-between p-3">
+                                    <h6 class="font-weight-bold text-dark mb-2" style="font-size: 0.9rem;">Экономайзер</h6>
+                                    <div class="d-flex align-items-center justify-content-between mt-auto pt-2 border-top">
+                                        <span class="font-weight-bold text-warning" style="font-size: 1.05rem;">5 000 &#8381;</span>
+                                        <input type="checkbox" class="my-option-checkbox" data-price="5000" style="width: 20px; height: 20px; cursor: pointer; accent-color: #f7b70b;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100 border shadow-sm" style="cursor: pointer; border-radius: 8px; overflow: hidden; background: #fff;" onclick="toggleCard(event, this)">
+                                <img src="../../../assets/img/options/placeholder.jpg" onerror="this.src='../../../bitrix/components/bitrix/catalog.element/templates/store_v3/images/no_photo.png'" class="card-img-top" alt="Печь" style="height: 130px; object-fit: cover; width: 100%;">
+                                <div class="card-body d-flex flex-column justify-content-between p-3">
+                                    <h6 class="font-weight-bold text-dark mb-2" style="font-size: 0.9rem;">Печь Сфера 16ВК 6мм.</h6>
+                                    <div class="d-flex align-items-center justify-content-between mt-auto pt-2 border-top">
+                                        <span class="font-weight-bold text-warning" style="font-size: 1.05rem;">10 000 &#8381;</span>
+                                        <input type="checkbox" class="my-option-checkbox" data-price="10000" style="width: 20px; height: 20px; cursor: pointer; accent-color: #f7b70b;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100 border shadow-sm" style="cursor: pointer; border-radius: 8px; overflow: hidden; background: #fff;" onclick="toggleCard(event, this)">
+                                <img src="../../../assets/img/options/placeholder.jpg" onerror="this.src='../../../bitrix/components/bitrix/catalog.element/templates/store_v3/images/no_photo.png'" class="card-img-top" alt="Печь" style="height: 130px; object-fit: cover; width: 100%;">
+                                <div class="card-body d-flex flex-column justify-content-between p-3">
+                                    <h6 class="font-weight-bold text-dark mb-2" style="font-size: 0.9rem;">Печь Сфера 20ВК 4мм</h6>
+                                    <div class="d-flex align-items-center justify-content-between mt-auto pt-2 border-top">
+                                        <span class="font-weight-bold text-warning" style="font-size: 1.05rem;">10 000 &#8381;</span>
+                                        <input type="checkbox" class="my-option-checkbox" data-price="10000" style="width: 20px; height: 20px; cursor: pointer; accent-color: #f7b70b;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100 border shadow-sm" style="cursor: pointer; border-radius: 8px; overflow: hidden; background: #fff;" onclick="toggleCard(event, this)">
+                                <img src="../../../assets/img/options/placeholder.jpg" onerror="this.src='../../../bitrix/components/bitrix/catalog.element/templates/store_v3/images/no_photo.png'" class="card-img-top" alt="Печь" style="height: 130px; object-fit: cover; width: 100%;">
+                                <div class="card-body d-flex flex-column justify-content-between p-3">
+                                    <h6 class="font-weight-bold text-dark mb-2" style="font-size: 0.9rem;">Печь Сфера 20ВК 6мм</h6>
+                                    <div class="d-flex align-items-center justify-content-between mt-auto pt-2 border-top">
+                                        <span class="font-weight-bold text-warning" style="font-size: 1.05rem;">15 000 &#8381;</span>
+                                        <input type="checkbox" class="my-option-checkbox" data-price="15000" style="width: 20px; height: 20px; cursor: pointer; accent-color: #f7b70b;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Вкладка 3: Душ, обливное устройство, внутренняя пропитка -->
+            <div class="cat-content row justify-content-center d-none" id="tab-3">
+                <div class="col-lg-10">
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100 border shadow-sm" style="cursor: pointer; border-radius: 8px; overflow: hidden; background: #fff;" onclick="toggleCard(event, this)">
+                                <img src="../../../assets/img/options/bak.jpg" onerror="this.src='../../../bitrix/components/bitrix/catalog.element/templates/store_v3/images/no_photo.png'" class="card-img-top" alt="Душ" style="height: 130px; object-fit: cover; width: 100%;">
+                                <div class="card-body d-flex flex-column justify-content-between p-3">
+                                    <h6 class="font-weight-bold text-dark mb-2" style="font-size: 0.9rem;">Душевой бак 200л с подогревом</h6>
+                                    <div class="d-flex align-items-center justify-content-between mt-auto pt-2 border-top">
+                                        <span class="font-weight-bold text-warning" style="font-size: 1.05rem;">25 000 &#8381;</span>
+                                        <input type="checkbox" class="my-option-checkbox" data-price="25000" style="width: 20px; height: 20px; cursor: pointer; accent-color: #f7b70b;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100 border shadow-sm" style="cursor: pointer; border-radius: 8px; overflow: hidden; background: #fff;" onclick="toggleCard(event, this)">
+                                <img src="../../../assets/img/options/placeholder.jpg" onerror="this.src='../../../bitrix/components/bitrix/catalog.element/templates/store_v3/images/no_photo.png'" class="card-img-top" alt="Обливное" style="height: 130px; object-fit: cover; width: 100%;">
+                                <div class="card-body d-flex flex-column justify-content-between p-3">
+                                    <h6 class="font-weight-bold text-dark mb-2" style="font-size: 0.9rem;">Обливное устройство (Ведро 15л)</h6>
+                                    <div class="d-flex align-items-center justify-content-between mt-auto pt-2 border-top">
+                                        <span class="font-weight-bold text-warning" style="font-size: 1.05rem;">6 000 &#8381;</span>
+                                        <input type="checkbox" class="my-option-checkbox" data-price="6000" style="width: 20px; height: 20px; cursor: pointer; accent-color: #f7b70b;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100 border shadow-sm" style="cursor: pointer; border-radius: 8px; overflow: hidden; background: #fff;" onclick="toggleCard(event, this)">
+                                <img src="../../../assets/img/options/placeholder.jpg" onerror="this.src='../../../bitrix/components/bitrix/catalog.element/templates/store_v3/images/no_photo.png'" class="card-img-top" alt="Пропитка" style="height: 130px; object-fit: cover; width: 100%;">
+                                <div class="card-body d-flex flex-column justify-content-between p-3">
+                                    <h6 class="font-weight-bold text-dark mb-2" style="font-size: 0.9rem;">Внутренняя пропитка лаком антисептиком (1500 руб. за кв.м)</h6>
+                                    <div class="d-flex align-items-center justify-content-between mt-auto pt-2 border-top">
+                                        <span class="font-weight-bold text-warning" style="font-size: 1.05rem;">1 500 &#8381;</span>
+                                        <input type="checkbox" class="my-option-checkbox" data-price="1500" style="width: 20px; height: 20px; cursor: pointer; accent-color: #f7b70b;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Вкладка 4: Сборка и фундамент -->
+            <div class="cat-content row justify-content-center d-none" id="tab-4">
+                <div class="col-lg-10">
+                    <div class="row">
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100 border shadow-sm" style="cursor: pointer; border-radius: 8px; overflow: hidden; background: #fff;" onclick="toggleCard(event, this)">
+                                <img src="../../../assets/img/options/terassa.jpg" onerror="this.src='../../../bitrix/components/bitrix/catalog.element/templates/store_v3/images/no_photo.png'" class="card-img-top" alt="Сборка" style="height: 130px; object-fit: cover; width: 100%;">
+                                <div class="card-body d-flex flex-column justify-content-between p-3">
+                                    <h6 class="font-weight-bold text-dark mb-2" style="font-size: 0.9rem;">Сборка на участке (5% от стоимости бани, доставка отдельно)</h6>
+                                    <div class="d-flex align-items-center justify-content-between mt-auto pt-2 border-top">
+                                        <span class="font-weight-bold text-muted" style="font-size: 0.9rem;">Расчет 5%</span>
+                                        <input type="checkbox" class="my-option-checkbox" data-price="0" style="width: 20px; height: 20px; cursor: pointer; accent-color: #f7b70b;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100 border shadow-sm" style="cursor: pointer; border-radius: 8px; overflow: hidden; background: #fff;" onclick="toggleCard(event, this)">
+                                <img src="../../../assets/img/options/placeholder.jpg" onerror="this.src='../../../bitrix/components/bitrix/catalog.element/templates/store_v3/images/no_photo.png'" class="card-img-top" alt="Фундамент" style="height: 130px; object-fit: cover; width: 100%;">
+                                <div class="card-body d-flex flex-column justify-content-between p-3">
+                                    <h6 class="font-weight-bold text-dark mb-2" style="font-size: 0.9rem;">Свайный фундамент (4500 руб. за 1 сваю)</h6>
+                                    <div class="d-flex align-items-center justify-content-between mt-auto pt-2 border-top">
+                                        <span class="font-weight-bold text-warning" style="font-size: 1.05rem;">4 500 &#8381;</span>
+                                        <input type="checkbox" class="my-option-checkbox" data-price="4500" style="width: 20px; height: 20px; cursor: pointer; accent-color: #f7b70b;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Итог -->
+            <div class="row justify-content-center mt-4">
+                <div class="col-lg-10">
+                    <div class="p-3 bg-light rounded shadow-sm d-flex justify-content-between align-items-center">
+                        <span class="font-weight-bold text-dark">Сумма выбранных дополнений:</span>
+                        <div style="font-size: 1.2rem; font-weight: bold; color: #f39c12;">
+                            <span id="my-clean-total">0</span> &#8381;
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+function switchTab(index) {
+    var buttons = document.querySelectorAll("#cat-tabs button");
+    var contents = document.querySelectorAll(".cat-content");
+    
+    buttons.forEach(function(btn, i) {
+        if (i === index) {
+            btn.style.backgroundColor = "#f7b70b";
+            btn.style.borderColor = "#f7b70b";
+            btn.style.color = "#000";
+        } else {
+            btn.style.backgroundColor = "transparent";
+            btn.style.borderColor = "#6c757d";
+            btn.style.color = "#6c757d";
+        }
+    });
+
+    contents.forEach(function(content, i) {
+        if (i === index) {
+            content.classList.remove("d-none");
+        } else {
+            content.classList.add("d-none");
+        }
+    });
+}
+
+function toggleCard(event, cardElement) {
+    let cb = cardElement.querySelector(".my-option-checkbox");
+    if (cb) {
+        if (event.target !== cb) {
+            cb.checked = !cb.checked;
+        }
+        calculateTotalSum();
+    }
+}
+
+document.addEventListener("change", function(e) {
+    if (e.target.classList.contains("my-option-checkbox")) {
+        calculateTotalSum();
+    }
+});
+
+function calculateTotalSum() {
+    let sum = 0;
+    document.querySelectorAll(".my-option-checkbox:checked").forEach(function(cb) {
+        sum += parseInt(cb.getAttribute("data-price")) || 0;
+    });
+    let totalSpan = document.getElementById("my-clean-total");
+    if (totalSpan) {
+        totalSpan.innerText = sum;
+    }
+}
+</script>
