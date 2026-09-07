@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Панель управления банями</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body { background: #f4f6f9; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; padding-bottom: 80px; }
+        .navbar-admin { background: #343a40; color: #fff; padding: 15px 30px; margin-bottom: 30px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+        .category-section { background: #fff; border-radius: 12px; padding: 25px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); border: 1px solid #e9ecef; }
+        .category-title { font-size: 1.25rem; font-weight: 700; color: #333; margin-bottom: 20px; border-bottom: 2px solid #f7b70b; padding-bottom: 8px; display: inline-block; }
+        .item-card { background: #f8f9fa; border: 1px solid #dee2e6; border-radius: 8px; padding: 15px; margin-bottom: 15px; transition: all 0.2s; }
+        .item-card:hover { border-color: #f7b70b; box-shadow: 0 2px 8px rgba(247, 183, 11, 0.15); }
+        .img-preview { width: 70px; height: 70px; object-fit: cover; border-radius: 6px; border: 1px solid #ced4da; background: #fff; }
+        .floating-footer { position: fixed; bottom: 0; left: 0; right: 0; background: rgba(52, 58, 64, 0.95); backdrop-filter: blur(5px); padding: 15px; box-shadow: 0 -4px 10px rgba(0,0,0,0.1); z-index: 1000; }
+        textarea { font-family: monospace; font-size: 0.85rem; background: #212529 !important; color: #28a745 !important; }
+    </style>
+</head>
+<body>
+
+    <div class="navbar-admin d-flex justify-content-between align-items-center">
+        <h4 class="m-0">Панель управления дополнительными элементами</h4>
+        <span class="badge badge-warning p-2">Режим администратора</span>
+    </div>
+
+    <div class="container" id="app-container">
+        <!-- Сюда динамически рендерятся категории и карточки -->
+    </div>
+
+    <!-- Плавающая панель генерации кода -->
+    <div class="floating-footer">
+        <div class="container d-flex justify-content-between align-items-center">
+            <span class="text-white font-weight-bold">Готово к публикации:</span>
+            <button class="btn btn-warning font-weight-bold px-4" onclick="generateCode()">Сгенерировать и скопировать код</button>
+        </div>
+    </div>
+
+    <!-- Модальное окно с результатом -->
+    <div class="container mt-5 mb-5">
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+                <h5 class="card-title text-dark font-weight-bold">Сгенерированный код (для template_options.html):</h5>
+                <textarea id="output-code" class="form-control" rows="8" readonly placeholder="Здесь появится готовый код после нажатия кнопки выше..."></textarea>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let optionsData = [
+            { cat: 0, name: "Стеклянная дверь парная или межкомнатная", price: 7000, img: "../../../assets/img/options/glass_door.jpg" },
+            { cat: 0, name: "Дверь входная пластиковая", price: 20000, img: "../../../assets/img/options/plastic_door.jpg" },
+            { cat: 0, name: "Дверь входная железная", price: 25000, img: "../../../assets/img/options/iron_door.jpg" },
+            { cat: 0, name: "Боковая врезка входной двери", price: 15000, img: "../../../assets/img/options/placeholder.jpg" },
+            { cat: 0, name: "Входной боковой портал", price: 50000, img: "../../../assets/img/options/vkhodnoy_portal.jpg" },
+            
+            { cat: 1, name: "Окно 60*90 деревянное", price: 7000, img: "../../../assets/img/options/placeholder.jpg" },
+            { cat: 1, name: "Окно 60*90 пластик", price: 9000, img: "../../../assets/img/options/placeholder.jpg" },
+            { cat: 1, name: "Рундук", price: 3000, img: "../../../assets/img/options/placeholder.jpg" },
+            { cat: 1, name: "Шкаф", price: 15000, img: "../../../assets/img/options/shkaf.jpg" },
+            { cat: 1, name: "Стеллаж", price: 7000, img: "../../../assets/img/options/stellazh.jpg" },
+            { cat: 1, name: "Раскладная кровать", price: 25000, img: "../../../assets/img/options/placeholder.jpg" },
+
+            { cat: 2, name: "Боковая врезка печи", price: 19000, img: "../../../assets/img/options/ograzhdenie.jpg" },
+            { cat: 2, name: "Экономайзер", price: 5000, img: "../../../assets/img/options/placeholder.jpg" },
+            { cat: 2, name: "Печь Сфера 16ВК 6мм.", price: 10000, img: "../../../assets/img/options/placeholder.jpg" },
+            { cat: 2, name: "Печь Сфера 20ВК 4мм", price: 10000, img: "../../../assets/img/options/placeholder.jpg" },
+            { cat: 2, name: "Печь Сфера 20ВК 6мм", price: 15000, img: "../../../assets/img/options/placeholder.jpg" },
+
+            { cat: 3, name: "Душевой бак 200л с подогревом", price: 25000, img: "../../../assets/img/options/bak.jpg" },
+            { cat: 3, name: "Обливное устройство (Ведро 15л)", price: 6000, img: "../../../assets/img/options/placeholder.jpg" },
+            { cat: 3, name: "Внутренняя пропитка лаком антисептиком (1500 руб. за кв.м)", price: 1500, img: "../../../assets/img/options/placeholder.jpg" },
+
+            { cat: 4, name: "Сборка на участке (5% от стоимости бани, доставка отдельно)", price: 0, img: "../../../assets/img/options/terassa.jpg" },
+            { cat: 4, name: "Свайный фундамент (4500 руб. за 1 сваю)", price: 4500, img: "../../../assets/img/options/placeholder.jpg" }
+        ];
+
+        const catNames = [
+            "Двери и входные группы", 
+            "Окна, шкафы, стеллажи", 
+            "Печи и каменка", 
+            "Душ, обливное и пропитка", 
+            "Сборка и фундамент"
+        ];
+
+        function renderAdmin() {
+            let container = document.getElementById("app-container");
+            container.innerHTML = "";
+
+            catNames.forEach((catTitle, catIdx) => {
+                let section = document.createElement("div");
+                section.className = "category-section";
+                section.innerHTML = `<div class="category-title">${catTitle}</div><div class="row" id="cat-row-${catIdx}"></div>`;
+                container.appendChild(section);
+
+                let row = document.getElementById(`cat-row-${catIdx}`);
+
+                optionsData.forEach((item, idx) => {
+                    if (item.cat === catIdx) {
+                        let col = document.createElement("div");
+                        col.className = "col-md-6";
+                        col.innerHTML = `
+                            <div class="item-card">
+                                <div class="media align-items-center mb-3">
+                                    <img src="${item.img}" id="preview-${idx}" class="img-preview mr-3" onerror="this.src='../../../bitrix/components/bitrix/catalog.element/templates/store_v3/images/no_photo.png'">
+                                    <div class="media-body">
+                                        <label class="btn btn-outline-secondary btn-sm mb-0 w-100" style="cursor: pointer;">
+                                            📁 Загрузить картинку
+                                            <input type="file" accept="image/*" class="d-none" onchange="uploadImage(event, ${idx})">
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="form-group mb-2">
+                                    <label class="small text-muted font-weight-bold mb-1">Название элемента:</label>
+                                    <input type="text" class="form-control form-control-sm" value="${item.name}" oninput="optionsData[${idx}].name = this.value">
+                                </div>
+                                <div class="form-group mb-0">
+                                    <label class="small text-muted font-weight-bold mb-1">Цена (в рублях):</label>
+                                    <input type="number" class="form-control form-control-sm" value="${item.price}" oninput="optionsData[${idx}].price = parseInt(this.value) || 0">
+                                </div>
+                            </div>
+                        `;
+                        row.appendChild(col);
+                    }
+                });
+            });
+        }
+
+        function uploadImage(event, idx) {
+            let file = event.target.files[0];
+            if (file) {
+                let reader = new FileReader();
+                reader.onload = function(e) {
+                    optionsData[idx].img = e.target.result; // Превращаем в base64 код картинки для мгновенного отображения
+                    document.getElementById(`preview-${idx}`).src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function formatPrice(num) {
+            return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+        }
+
+        function generateCode() {
+            let tabsHtml = '';
+            
+            catNames.forEach((catTitle, catIdx) => {
+                let isHidden = catIdx === 0 ? '' : 'd-none';
+                tabsHtml += `\n            <!-- Вкладка ${catIdx}: ${catTitle} -->\n            <div class="cat-content row justify-content-center ${isHidden}" id="tab-${catIdx}">\n                <div class="col-lg-10">\n                    <div class="row">`;
+                
+                optionsData.filter(i => i.cat === catIdx).forEach(item => {
+                    let displayPrice = item.price === 0 ? 'Расчет 5%' : formatPrice(item.price) + ' &#8381;';
+                    tabsHtml += `
+                        <div class="col-md-4 mb-3">
+                            <div class="card h-100 border shadow-sm" style="cursor: pointer; border-radius: 8px; overflow: hidden; background: #fff;" onclick="toggleCard(event, this)">
+                                <img src="${item.img}" onerror="this.src='../../../bitrix/components/bitrix/catalog.element/templates/store_v3/images/no_photo.png'" class="card-img-top" alt="Фото" style="height: 130px; object-fit: cover; width: 100%;">
+                                <div class="card-body d-flex flex-column justify-content-between p-3">
+                                    <h6 class="font-weight-bold text-dark mb-2" style="font-size: 0.9rem;">${item.name}</h6>
+                                    <div class="d-flex align-items-center justify-content-between mt-auto pt-2 border-top">
+                                        <span class="font-weight-bold text-warning" style="font-size: 1.05rem;">${displayPrice}</span>
+                                        <input type="checkbox" class="my-option-checkbox" data-price="${item.price}" style="width: 20px; height: 20px; cursor: pointer; accent-color: #f7b70b;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>`;
+                });
+
+                tabsHtml += `\n                    </div>\n                </div>\n            </div>\n`;
+            });
+
+            let fullTemplate = `<div id="b1716" class="block-wrapper">
+    <section class="landing-block g-pt-40 g-pb-40 g-bg-white">
+        <div class="container">
+            <div class="row mb-4">
+                <div class="col-12 text-center">
+                    <h2 class="text-uppercase font-weight-700 h1 mb-3" style="color: #000;">Дополнительные элементы</h2>
+                    <p class="text-muted">Выберите улучшения и дополнения для вашей бани</p>
+                </div>
+            </div>
+            
+            <!-- Кнопки категорий (вкладки) -->
+            <div class="row mb-4">
+                <div class="col-12 d-flex flex-wrap justify-content-center" id="cat-tabs" style="gap: 6px;">
+                    <button type="button" class="btn text-uppercase font-weight-bold cat-btn" onclick="switchTab(0)" style="background-color: #f7b70b; border-color: #f7b70b; color: #000; font-size: 0.75rem; padding: 8px 10px; border-radius: 4px;">Двери и входные группы</button>
+                    <button type="button" class="btn btn-outline-secondary text-uppercase font-weight-bold cat-btn" onclick="switchTab(1)" style="font-size: 0.75rem; padding: 8px 10px; border-radius: 4px; border-color: #6c757d; color: #6c757d;">Окна, шкафы, стеллажи</button>
+                    <button type="button" class="btn btn-outline-secondary text-uppercase font-weight-bold cat-btn" onclick="switchTab(2)" style="font-size: 0.75rem; padding: 8px 10px; border-radius: 4px; border-color: #6c757d; color: #6c757d;">Печи и каменка</button>
+                    <button type="button" class="btn btn-outline-secondary text-uppercase font-weight-bold cat-btn" onclick="switchTab(3)" style="font-size: 0.75rem; padding: 8px 10px; border-radius: 4px; border-color: #6c757d; color: #6c757d;">Душ, обливное и пропитка</button>
+                    <button type="button" class="btn btn-outline-secondary text-uppercase font-weight-bold cat-btn" onclick="switchTab(4)" style="font-size: 0.75rem; padding: 8px 10px; border-radius: 4px; border-color: #6c757d; color: #6c757d;">Сборка и фундамент</button>
+                </div>
+            </div>
+${tabsHtml}
+            <!-- Итог -->
+            <div class="row justify-content-center mt-4">
+                <div class="col-lg-10">
+                    <div class="p-3 bg-light rounded shadow-sm d-flex justify-content-between align-items-center">
+                        <span class="font-weight-bold text-dark">Сумма выбранных дополнений:</span>
+                        <div style="font-size: 1.2rem; font-weight: bold; color: #f39c12;">
+                            <span id="my-clean-total">0</span> &#8381;
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script>
+function switchTab(index) {
+    var buttons = document.querySelectorAll("#cat-tabs button");
+    var contents = document.querySelectorAll(".cat-content");
+    
+    buttons.forEach(function(btn, i) {
+        if (i === index) {
+            btn.style.backgroundColor = "#f7b70b";
+            btn.style.borderColor = "#f7b70b";
+            btn.style.color = "#000";
+        } else {
+            btn.style.backgroundColor = "transparent";
+            btn.style.borderColor = "#6c757d";
+            btn.style.color = "#6c757d";
+        }
+    });
+
+    contents.forEach(function(content, i) {
+        if (i === index) {
+            content.classList.remove("d-none");
+        } else {
+            content.classList.add("d-none");
+        }
+    });
+}
+
+function toggleCard(event, cardElement) {
+    let cat = cardElement.querySelector(".my-option-checkbox");
+    if (cat) {
+        if (event.target !== cat) {
+            cat.checked = !cat.checked;
+        }
+        calculateTotalSum();
+    }
+}
+
+document.addEventListener("change", function(e) {
+    if (e.target.classList.contains("my-option-checkbox")) {
+        calculateTotalSum();
+    }
+});
+
+function calculateTotalSum() {
+    let sum = 0;
+    document.querySelectorAll(".my-option-checkbox:checked").forEach(function(cb) {
+        sum += parseInt(cb.getAttribute("data-price")) || 0;
+    });
+    let totalSpan = document.getElementById("my-clean-total");
+    if (totalSpan) {
+        totalSpan.innerText = sum;
+    }
+}
+<\/script>`;
+
+            let textarea = document.getElementById("output-code");
+            textarea.value = fullTemplate;
+            textarea.select();
+            document.execCommand("copy");
+            alert("Код успешно сгенерирован и скопирован в буфер обмена!");
+        }
+
+        renderAdmin();
+    </script>
+</body>
+</html>
