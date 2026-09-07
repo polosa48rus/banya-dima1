@@ -1,0 +1,5 @@
+Sitemap: https://xn----8sbcwfd5adc3e1f.xn--p1ai/sitemap.xml
+
+User-agent: *
+Disallow: /pub/site/*
+Disallow: /preview/*
